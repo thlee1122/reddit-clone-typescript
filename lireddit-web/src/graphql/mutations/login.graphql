@@ -1,0 +1,6 @@
+# UsernamePasswordInput comes from graphql.tsx which is created after running gencode for register.graphql
+mutation Login($usernameOrEmail: String!, $password: String!) {
+  login(usernameOrEmail: $usernameOrEmail, password: $password) {
+    ...RegularUserResponse
+  }
+}
