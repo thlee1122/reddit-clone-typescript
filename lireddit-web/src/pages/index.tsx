@@ -11,13 +11,17 @@ import EditDeletePostButtons from "../components/EditDeletePostButtons";
 const Index = () => {
   const [variables, setVariables] = useState({ limit: 10, cursor: null as null | string });
 
-  const [{ data, fetching }] = usePostsQuery({ 
+  const [{ data, error, fetching }] = usePostsQuery({ 
     variables
   });
 
   if(!fetching && !data) {
     return (
-      <div>You got no posts for some reason</div>
+      <div>
+        <div>You got no posts for some reason. . .</div>
+        <div>{error?.message}</div>
+      </div>
+      
     )
   }
 
